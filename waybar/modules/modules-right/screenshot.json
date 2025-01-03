@@ -1,0 +1,7 @@
+{
+    "custom/screenshot_t":{
+        "format":"",
+        "on-click": "~/.config/waybar/modules/custom-modules/screenshot/screenshot_full",
+        "on-click-right":"~/.config/waybar/modules/custom-modules/screenshot/screenshot_area"
+    }
+}

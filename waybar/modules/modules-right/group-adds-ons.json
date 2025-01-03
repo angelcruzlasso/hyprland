@@ -1,0 +1,15 @@
+{
+"group/adds-ons":{
+        "orientation": "horizontal",
+        "modules": [
+            "custom/logo-adds-ons",
+            "custom/gammastep",
+            "custom/screenshot_t",
+            "power-profiles-daemon"
+        ],
+        "drawer":{
+            "transition-duration": 500,
+            "click-to-reveal": false
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "group/backlight":{
+            "orientation": "horizontal",
+            "modules": [
+                "custom/logo-backlight",
+                "backlight"
+            ]
+        }
+}

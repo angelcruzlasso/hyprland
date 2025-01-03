@@ -1,0 +1,14 @@
+{
+    "cava": {
+        "cava_config": "$HOME/.config/cava/config",
+        "bars": 10,
+        "method": "pipewire",
+        "bar_delimiter": 0,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                "on-click-right": "mode"
+                }
+    }
+}

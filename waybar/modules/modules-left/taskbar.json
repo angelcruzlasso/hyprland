@@ -1,0 +1,13 @@
+{
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-app": "icon",
+        "icon-size": 18,
+        "spacing": 0,
+        "on-click-middle": "close",
+        "tooltip-format": "{title}",
+        "ignore-list": [],
+        "on-click": "activate",
+        "active-first": true
+    }
+}

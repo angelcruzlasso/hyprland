@@ -1,0 +1,3 @@
+#!/usr/bin/bash 
+# -O  
+gammastep -O 4500 -l 0:0 -b 1.0

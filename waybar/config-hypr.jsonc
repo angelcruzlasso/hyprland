@@ -1,0 +1,73 @@
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+    "layer": "top",
+    "position": "top",
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-bottom": 0,
+    "margin-right": 0,
+    "spacing": 0, 
+    "mod": "dock",
+    "exclusive": true,
+
+    "modules-left": [
+        "custom/logo-help",
+        "wlr/taskbar",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        //otros
+        "group/adds-ons",
+        "cava",
+        // grupo de info
+        "group/info",
+        "custom/logo-backlight",
+        "backlight",
+        // grupo info segundo plano
+        "tray",
+        "bluetooth",
+        "custom/updates",
+        // general
+        "network",
+        "battery",
+        "custom/wlogout"
+    ],
+
+    //modules configuration
+    "include":[
+        // modules center
+        "~/.config/waybar/modules/modules-center/hyprland-window.json",
+        
+        // modules left
+        "~/.config/waybar/modules/modules-left/logo-help.json",
+        "~/.config/waybar/modules/modules-left/taskbar.json",
+        "~/.config/waybar/modules/modules-left/cava.json",
+        "~/.config/waybar/modules/modules-left/tray.json",
+        "~/.config/waybar/modules/modules-left/workspaces.json",
+
+        // Modules right
+        "~/.config/waybar/modules/modules-right/group-adds-ons.json",
+        "~/.config/waybar/modules/modules-right/logo-adds-ons.json",
+        "~/.config/waybar/modules/modules-right/group-backlight.json",
+        "~/.config/waybar/modules/modules-right/logo-backlight.json",
+        "~/.config/waybar/modules/modules-right/backlight.json",
+        "~/.config/waybar/modules/modules-right/network.json",
+        "~/.config/waybar/modules/modules-right/battery.json",
+        "~/.config/waybar/modules/modules-right/clock.json",
+        "~/.config/waybar/modules/modules-right/gammastep.json",
+        "~/.config/waybar/modules/modules-right/screenshot.json",
+        "~/.config/waybar/modules/modules-right/pulseaudio.json",
+        "~/.config/waybar/modules/modules-right/power-profile-deamon.json",
+        "~/.config/waybar/modules/modules-right/memory.json",
+        "~/.config/waybar/modules/modules-right/wlogout.json",
+        "~/.config/waybar/modules/modules-right/group-info.json",
+        "~/.config/waybar/modules/modules-right/custom-updates.json",
+        "~/.config/waybar/modules/modules-right/bluetooth.json"
+    ]
+}

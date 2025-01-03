@@ -1,0 +1,9 @@
+{
+    "group/info":{
+        "orientation": "horizontal",
+        "modules": [
+            "memory",
+            "pulseaudio"
+        ]
+    }
+}    

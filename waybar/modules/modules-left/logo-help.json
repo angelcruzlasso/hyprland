@@ -1,0 +1,7 @@
+{
+    "custom/logo-help": {
+        "format": "󰸊",
+        "tooltip": false,
+        "on-click": "/bin/bash ~/.config/waybar/modules/custom-modules/menu-help/rofi-help.sh"
+    }
+}
