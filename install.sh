@@ -52,13 +52,11 @@ buscando_gestor_de_paquetes
 case "$GESTOR" in 
     paru)
 	paru -Rnu waybar --noconfirm    
-        paru -S hyprpaper cliphist nwg-displays nwg-look flat-remix-gtk cava gammastep cava waybar-cava waybar-module-pacman-updates-git --needed --noconfirm
-	paru -S waybar-cava
+        paru -S hyprpaper cliphist nwg-displays nwg-look flat-remix-gtk gammastep waybar-module-pacman-updates-git wayvnc --needed --noconfirm 
         ;;  # es similar a un break
     pacman)
         sudo pacman -Syu
-        sudo pacman -S hyprpaper cliphist nwg-displays nwg-look flat-remix-gtk cava gammastep cava waybar-cava waybar-module-pacman-updates-git --needed --noconfirm
-        paru -S waybar-cava
+        sudo pacman -S hyprpaper cliphist nwg-displays nwg-look flat-remix-gtk gammastep waybar-module-pacman-updates-git wayvnc --needed --noconfirm
 	;; 
     *) # la opción por defecto, en caso de que ninguna coincide con el resultado deseado
         echo "No se encontró el gestor de paquetes: $GESTOR"
@@ -66,8 +64,15 @@ case "$GESTOR" in
         ;; 
 esac # fin de la estructura case
 
-# configuracion para cava
-touch ~/.config/cava/config
+
+
+# configuracion de waypaper
+#if file ~/.config/waypaper/config.ini; then
+#    touch ~/.config/waypaper/config.ini;
+#else
+#    # en progreso
+#fi
+
 
 # configuracion para rofi
 mkdir -p ~/.local/share/rofi

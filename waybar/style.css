@@ -1,6 +1,7 @@
 @define-color primary #5ebcbf;
 @define-color secondary #686869;
 @define-color third #393c44;
+@define-color fourth #9ca1a1;
 
 * {
   font-family: "Varino"; /* `otf-font-awesome` es necesario para los íconos */
@@ -12,9 +13,9 @@
 
 /* El bar completo: Estilo del waybar en general */
 #waybar {
-  background: rgba(25, 25, 25, 0.78);
+  background: rgba(39, 38, 38, 0.849);
   color: #ffffff;
-  border-radius: 0px;
+  border-radius: 7px;
   border-bottom: 0px solid rgb(255, 255, 255);
   margin-bottom: 0px;
 }
@@ -31,8 +32,10 @@
 
 /* Espacios de trabajo */
 #workspaces {
-  font-size: 25px;
   background-color: transparent;
+  font-size: 20px;
+  margin: 7 0 7 -20px;
+  padding: 0 0 0 8px;
 }
 
 /* Botones de los espacios de trabajo */
@@ -40,14 +43,13 @@
   border-radius: 0px;
   background-color: transparent;
   color: @secondary;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 0px solid rgba(255, 255, 255, 0.3);
 }
 
 /* Espacios de trabajo activos */
 #workspaces button.active {
-  color: @primary;
+  color: @fourth;
   background-color: transparent;
-  border-bottom: 3px solid #5ebcbf;
 }
 
 /* Espacios de trabajo vacíos */
@@ -58,7 +60,7 @@
 
 #window {
   font-size:12px;
-  color: @secondary; 
+  color: @fourth; 
   border-radius: 5px;
   border: 0px solid #686869;
   padding-right: 15px;
@@ -70,7 +72,7 @@
 }
 
 #clock {
-  color: @secondary;
+  color: @fourth;
   background-color: transparent;
   margin-right: 10px;
 }
@@ -86,30 +88,25 @@
 
 #taskbar {
   background-color: transparent;
-  margin: 0px;
-  border-radius: 50px;
+  font-size: 8px;
+  margin: 2 0 2 0px;
+  padding: 0 15 0 8px;
 }
 
 #taskbar button {
   min-width: 20px;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.3);
-  margin-left: 0px;
-  margin-right: 0px;
-  border-radius: 0px;
-  padding-left: 8px;
-  padding-right: 8px;
-  color: white;
+  border-bottom: 0px solid rgba(255, 255, 255, 0.3);
   transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 #taskbar button.active {
-  border-bottom: 3px solid #5ebcbf;
+  border-bottom: 2px solid #5ebcbf; /*#5ebcbf*/
   background: transparent;
   border-radius: 0px;
 }
 
 #taskbar button:hover {
-  border-bottom: 3px solid white;
+  border-bottom: 2px solid white;
   background: transparent;
   border-radius: 0px;
 }
@@ -120,11 +117,11 @@
   background-color: @third;
   padding: 0 4 0 4px;
   margin: 7 0 7 0px;
-  border-top: 2px solid @secondary;
-  border-left: 2px solid @secondary;
-  border-bottom: 2px solid @secondary;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top: 0px solid @secondary;
+  border-left: 0px solid @secondary;
+  border-bottom: 0px solid @secondary;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 #pulseaudio {
@@ -133,8 +130,8 @@
   font-size: 12px;
   padding: 0 4 0 4px;
   margin: 7 0 7 0px;
-  border-top: 2px solid @secondary;
-  border-bottom: 2px solid @secondary;
+  border-top: 0px solid @secondary;
+  border-bottom: 0px solid @secondary;
   
 }
 
@@ -144,37 +141,39 @@
   font-size: 12px;
   padding: 1 4 0 0px;
   margin: 7 0 7 0px;
-  border-top: 2px solid @secondary;
-  border-bottom: 2px solid @secondary;
-  border-right: 2px solid @secondary;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top: 0px solid @secondary;
+  border-bottom: 0px solid @secondary;
+  border-right: 0px solid @secondary;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 #custom-logo-backlight{
   color:  @primary;
   background-color: @third;
   font-size: 15px;
   margin: 7 0 7 0px;
-  padding: 0 6 0 4px;
-  border-top: 2px solid @secondary;
-  border-bottom: 2px solid @secondary;
+  padding: 0 7 0 4px;
 }
 
+#custom-change-wallpaper{
+  color: @secondary;
+  font-size: 20px;
+  padding: 0 5 0 5px;
+  margin: 0 10 0 3px;
+}
 
 #bluetooth {
-  color: @primary;
-  background-color: @third;
-  font-size: 12px;
-  padding: 0 4 0 4px;
+  color: @secondary;
+  background-color: transparent;
+  font-size: 20px;
+  padding: 0 4 0 7px;
   margin: 7 0 7 0px;
-  border-top: 2px solid @secondary;
-  border-bottom: 2px solid @secondary;
 }
 
-#custom-logo-help {
+#custom-logo-taskbar {
   color: #04f7ff;
-  font-size: 20pt;
-  margin: 3px 10px;
+  font-size: 20px;
+  padding: 0 4 0 4;
 }
 
 #bluetooth.disconnected {
@@ -186,14 +185,9 @@
 #tray {
   font-size: 12px;
   color: @primary;
-  background-color: @third;
+  background-color: transparent;
   padding: 0 4 0 4px;
   margin: 7 0 7 5px;
-  border-top: 2px solid @secondary;
-  border-left: 2px solid @secondary;
-  border-bottom: 2px solid @secondary;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
 }
 
 #tray > .passive {
@@ -203,16 +197,6 @@
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
   background-color: #eb4d4b;
-}
-
-#cava {
-  color:  @primary;
-  background-color: @third;
-  font-size: 8px;
-  margin: 7 5 7 5px;
-  padding: 0 8 0 5px;
-  border-radius: 20px;
-  border: 2px solid @secondary;
 }
 
 #custom-gammastep {
@@ -230,15 +214,17 @@
 
 #custom-logo-adds-ons {
   color: @primary;
-  font-size: 25px;
-  background-color: transparent;
-  padding: 0 0 0 0px;
-  margin: 0 5 0 0px;
+  font-size: 20px;
+  background-color: @third;
+  padding: 0 5 0 5px;
+  margin: 7 0 7 0px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 #power-profiles-daemon{
   font-size: 17px;
-  padding:0 7 0 7px;
+  padding:0 2 0 7px;
   margin: 0 5 0 5px
 }
 #power-profiles-daemon.performance{
@@ -256,8 +242,8 @@
   font-size: 18px;
   color: @secondary;
   padding-left: 5px;
-  padding-right: 3px;
-  margin: 0px 10px;
+  padding-right: 0px;
+  margin: 0 10 0 0px;
   background-color: transparent;
 }
 
@@ -282,7 +268,7 @@
 #battery.charging,
 #battery.full,
 #battery.plugged {
-  color: @primary;
+  color: #3bffa4;
   background-color: transparent;
 }
 
@@ -303,14 +289,15 @@
 }
 
 #custom-updates {
-  color:  @primary;
-  background-color: @third;
-  font-size: 12px;
-  padding: 1 12 0 0px;
+  color:  @secondary;
+  background-color: transparent;
+  font-size: 15px;
+  padding: 1 7 0 5px;
   margin: 7 0 7 0px;
-  border-top: 2px solid @secondary;
-  border-bottom: 2px solid @secondary;
-  border-right: 2px solid @secondary;
-  border-top-right-radius: 20px;
+  border-top: 0px solid @secondary;
+  border-bottom: 0px solid @secondary;
+  border-right: 0px solid @secondary;
+  border-top-right-radius: 5px;
   border-bottom-right-radius: 20px;
-}
+}  
+

@@ -4,17 +4,17 @@
     // -------------------------------------------------------------------------
     "layer": "top",
     "position": "top",
-    "margin-top": 0,
-    "margin-left": 0,
+    "margin-top": 7,
+    "margin-left": 7,
     "margin-bottom": 0,
-    "margin-right": 0,
+    "margin-right": 7,
     "spacing": 0, 
     "mod": "dock",
     "exclusive": true,
+    "reload_style_on_change": true,
 
     "modules-left": [
-        "custom/logo-help",
-        "wlr/taskbar",
+        "group/taskbar",
         "hyprland/workspaces",
         "hyprland/window"
     ],
@@ -22,18 +22,12 @@
         "clock"
     ],
     "modules-right": [
-        //otros
         "group/adds-ons",
-        "cava",
-        // grupo de info
         "group/info",
         "custom/logo-backlight",
         "backlight",
-        // grupo info segundo plano
-        "tray",
-        "bluetooth",
         "custom/updates",
-        // general
+        "bluetooth",
         "network",
         "battery",
         "custom/wlogout"
@@ -45,9 +39,9 @@
         "~/.config/waybar/modules/modules-center/hyprland-window.json",
         
         // modules left
-        "~/.config/waybar/modules/modules-left/logo-help.json",
+        "~/.config/waybar/modules/modules-left/group-taskbar.json",
+        "~/.config/waybar/modules/modules-left/logo-taskbar.json",
         "~/.config/waybar/modules/modules-left/taskbar.json",
-        "~/.config/waybar/modules/modules-left/cava.json",
         "~/.config/waybar/modules/modules-left/tray.json",
         "~/.config/waybar/modules/modules-left/workspaces.json",
 
@@ -68,6 +62,7 @@
         "~/.config/waybar/modules/modules-right/wlogout.json",
         "~/.config/waybar/modules/modules-right/group-info.json",
         "~/.config/waybar/modules/modules-right/custom-updates.json",
-        "~/.config/waybar/modules/modules-right/bluetooth.json"
+        "~/.config/waybar/modules/modules-right/bluetooth.json",
+        "~/.config/waybar/modules/modules-right/change-wallpaper.json"
     ]
 }
