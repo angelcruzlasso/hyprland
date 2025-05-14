@@ -50,13 +50,12 @@ buscando_gestor_de_paquetes
 # Usaremos la estructura case para la descarga de paquetes
 #
 case "$GESTOR" in 
-    paru)
-	paru -Rnu waybar --noconfirm    
-        paru -S hyprpaper cliphist nwg-displays nwg-look flat-remix-gtk gammastep waybar-module-pacman-updates-git wayvnc --needed --noconfirm 
+    paru)   
+	paru --needed -noconfirm    
+        paru -S hyprpaper cliphist nwg-displays nwg-look flat-remix-gtk gammastep blueman octopi network-manager-applet waypaper ttf-jetbrains-mono-nerd --needed --noconfirm 
         ;;  # es similar a un break
     pacman)
-        sudo pacman -Syu
-        sudo pacman -S hyprpaper cliphist nwg-displays nwg-look flat-remix-gtk gammastep waybar-module-pacman-updates-git wayvnc --needed --noconfirm
+        sudo pacman -S hyprpaper cliphist nwg-displays nwg-look flat-remix-gtk blueman octopi gammastep network-manager-applet waypaper ttf-jetbrains-mono-nerd --needed --noconfirm
 	;; 
     *) # la opción por defecto, en caso de que ninguna coincide con el resultado deseado
         echo "No se encontró el gestor de paquetes: $GESTOR"

@@ -1,0 +1,23 @@
+{
+    "group/backlight": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/logo-backlight",
+            "backlight/slider"
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "click-to-reveal": true
+        }
+    },
+    "custom/logo-backlight":{
+        "format": "󰃟",
+        "tooltip": false
+    },
+    "backlight/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
+        "device": "intel_backlight"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+    "layer": "top",
+    "position": "top",
+    "margin-top": 7,
+    "margin-left": 7,
+    "margin-bottom": 0,
+    "margin-right": 7,
+    "spacing": 0, 
+    "mod": "dock",
+    "exclusive": true,
+    "reload_style_on_change": true,
+
+    "modules-left": [
+        "group/taskbar",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "group/adds-ons",
+        "memory",
+        "tray",
+        "battery"
+    ],
+
+    //modules configuration
+    "include":[
+        // modules center
+        "~/.config/waybar/modules/modules-center/clock.json",
+        
+        // modules left
+        "~/.config/waybar/modules/modules-left/group-taskbar.json",
+        "~/.config/waybar/modules/modules-left/logo-taskbar.json",
+        "~/.config/waybar/modules/modules-left/taskbar.json",
+        "~/.config/waybar/modules/modules-left/tray.json",
+        "~/.config/waybar/modules/modules-left/workspaces.json",
+        "~/.config/waybar/modules/modules-left/hyprland-window.json",
+
+        // Modules right
+        "~/.config/waybar/modules/modules-right/tray.json",
+        "~/.config/waybar/modules/modules-right/backlight-config.json",
+        "~/.config/waybar/modules/modules-right/custom-config.json",
+        "~/.config/waybar/modules/modules-right/pulseaudio-config.json",
+        "~/.config/waybar/modules/modules-right/battery.json",
+        "~/.config/waybar/modules/modules-right/memory.json"
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "group/pulseaudio": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/logo-pulseaudio",
+            "pulseaudio/slider"
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "click-to-reveal": true
+        }
+    },
+    "custom/logo-pulseaudio": {
+        "format": "󰕾",
+        "tooltip": false
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal"
+    }
+}

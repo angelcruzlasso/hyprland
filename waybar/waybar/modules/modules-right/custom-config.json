@@ -1,0 +1,51 @@
+{
+    "group/adds-ons":{
+        "orientation": "horizontal",
+        "modules": [
+            "custom/logo-adds-ons",
+            "group/backlight",
+            "group/pulseaudio",
+            "custom/gammastep",
+            "custom/screenshot_t",
+            "power-profiles-daemon",
+            "custom/change-wallpaper"
+        ],
+        "drawer":{
+            "transition-duration": 500,
+            "click-to-reveal": false
+        }
+    },
+        "custom/logo-adds-ons":{
+        "format": "",
+        "tooltip": false
+    },
+    "custom/gammastep":{
+        "format": "{}",
+        "exec": "/bin/bash ~/.config/waybar/modules/custom-modules/gammastep/status.sh",
+        "on-click": "/bin/bash ~/.config/waybar/modules/custom-modules/gammastep/toggle.sh",
+        "return-type": "json",
+        "restart-interval":1,
+        "tooltip": true,
+        "tooltip-format": "hola"
+    },
+        "custom/screenshot_t":{
+        "format":"",
+        "on-click": "~/.config/waybar/modules/custom-modules/screenshot/screenshot_full",
+        "on-click-right":"~/.config/waybar/modules/custom-modules/screenshot/screenshot_area"
+    },
+        "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "custom/change-wallpaper":{
+        "format": "󰸉",
+        "on-click": "waypaper"
+    }
+}
