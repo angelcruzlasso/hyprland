@@ -11,10 +11,6 @@ sudo cp -rv fonts/varino/ /usr/share/fonts/
 sudo fc-cache -fv
 #
 # Verificamos la existencia de la carpeta Waybar
-#
-if [ -d ~/.config/waybar ]; then
-    rm -rv ~/.config/waybar
-fi
 
 # Creamos el directorio si no existe
 mkdir -p ~/.config/waybar
@@ -67,7 +63,7 @@ esac # fin de la estructura case
 
 # configuracion de waypaper
 #if file ~/.config/waypaper/config.ini; then
-#    touch ~/.config/waypaper/config.ini;
+#    touch ~/.configwaypaper/config.ini;
 #else
 #    # en progreso
 #fi
