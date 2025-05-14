@@ -1,94 +1,84 @@
 #!/bin/bash
 
-# La creación de este script es con fines de aprendizaje... 
+# Script de configuración de entorno Wayland con Waybar, Rofi, Hyprland y SDDM
+# Autor: Angel Cruz Lasso
+# Propósito: Instalación y configuración automática del entorno gráfico.
 
-# Configurando el Waybar
-#
-# Agregando la fuente para el Waybar 
-sudo cp -rv fonts/varino/ /usr/share/fonts/
-#
-# Recargamos las nuevas fuentes del sistema
-sudo fc-cache -fv
-#
-# Verificamos la existencia de la carpeta Waybar
+set -e  # Detener el script ante cualquier error
 
-# Creamos el directorio si no existe
-mkdir -p ~/.config/waybar
+# ========= VARIABLES =========
 
-# Copiamos el contenido de nuestra Waybar hacia el de configuración
-cp -rv waybar/* ~/.config/waybar/
+FONT_DIR="/usr/share/fonts"
+WAYBAR_DIR="$HOME/.config/waybar"
+ROFI_THEME_DIR="$HOME/.local/share/rofi/themes"
+HYPR_DIR="$HOME/.config/hypr"
+SDDM_THEME_DIR="/usr/share/sddm/themes"
+SDDM_CONF="/etc/sddm.conf"
 
-#
-# Crearemos una función que detecte nuestro gestor de paquetes.
-# Usamos el comando "command" que verifica si un comando existe y además 
-# agregamos la opción "-v" para que imprima la ruta de su ejecutable.
-#
-# Redirigiremos la salida del uso de comando "command", los descriptores de archivos stdout y stderr,
-# usando & hacia /dev/null, que es un dispositivo especial en Unix/Linux,
-# que descarta cualquier dato que se le envíe. 
-# Realizamos esto con el fin de no mostrar la salida en caso de éxito o error, 
-# con fines de limpieza en cuanto a la depuración.
-#
-buscando_gestor_de_paquetes () {
+# ========= FUNCIONES =========
+
+log() {
+    echo -e "\e[1;32m[INFO]\e[0m $1"
+}
+
+error_exit() {
+    echo -e "\e[1;31m[ERROR]\e[0m $1"
+    exit 1
+}
+
+detectar_gestor_de_paquetes() {
     if command -v paru &>/dev/null; then 
-        GESTOR="paru"
+        echo "paru"
     elif command -v pacman &>/dev/null; then
-        GESTOR="pacman"
+        echo "pacman"
     else 
-        echo "No se encontró un gestor de paquetes."
-        exit 1
+        error_exit "No se encontró un gestor de paquetes compatible (paru o pacman)."
     fi
 }
 
-# Llamamos a la función para detectar el gestor de paquetes
-buscando_gestor_de_paquetes
-#
-# Usaremos la estructura case para la descarga de paquetes
-#
-case "$GESTOR" in 
-    paru)   
-	paru --needed -noconfirm    
-        paru -S hyprpaper cliphist nwg-displays nwg-look flat-remix-gtk gammastep blueman octopi network-manager-applet waypaper ttf-jetbrains-mono-nerd --needed --noconfirm 
-        ;;  # es similar a un break
-    pacman)
-        sudo pacman -S hyprpaper cliphist nwg-displays nwg-look flat-remix-gtk blueman octopi gammastep network-manager-applet waypaper ttf-jetbrains-mono-nerd --needed --noconfirm
-	;; 
-    *) # la opción por defecto, en caso de que ninguna coincide con el resultado deseado
-        echo "No se encontró el gestor de paquetes: $GESTOR"
-        exit 1 # El número uno significa error
-        ;; 
-esac # fin de la estructura case
+# ========= PROCESO =========
 
+log "Copiando fuentes..."
+sudo cp -rv fonts/varino/ "$FONT_DIR/" || error_exit "No se pudieron copiar las fuentes."
+sudo fc-cache -fv
 
+log "Configurando Waybar..."
+mkdir -p "$WAYBAR_DIR"
+cp -rv waybar/* "$WAYBAR_DIR/"
 
-# configuracion de waypaper
-#if file ~/.config/waypaper/config.ini; then
-#    touch ~/.configwaypaper/config.ini;
-#else
-#    # en progreso
-#fi
+log "Detectando gestor de paquetes..."
+GESTOR=$(detectar_gestor_de_paquetes)
 
+log "Instalando paquetes necesarios con $GESTOR..."
+PKGS=(
+    hyprpaper cliphist nwg-displays nwg-look
+    flat-remix-gtk blueman octopi gammastep
+    network-manager-applet waypaper ttf-jetbrains-mono-nerd
+)
 
-# configuracion para rofi
-mkdir -p ~/.local/share/rofi
-mkdir -p ~/.local/share/rofi/themes
-cp rofi/* ~/.local/share/rofi/themes/.
-
-# Movemos el contenido de configuración de Hypr hacia el destino
-#
-cp -rv hypr/* ~/.config/hypr/
-
-# Movemos el archivo de configuracion del sddm
-sudo cp -rv sddm/sequoia /usr/share/sddm/themes
-#
-# Modificamos la variable Current que especifica la variable del tema sddm a usar
-if sudo grep -q "Current" /etc/sddm.conf; then 
-    sudo sed -i 's/^Current=.*/Current=sequoia/' /etc/sddm.conf || { echo "error al modificar el archivo sddm.conf"; exit 1; }
-else 
-    # En caso de no existir la variable, la agregaremos	
-    sudo sh -c 'cat <<EOF >> /etc/sddm.conf
-[Theme]
-Current=sequoia
-EOF' || { echo "error al modificar el archivo sddm.conf"; exit 1; }
+if [ "$GESTOR" = "paru" ]; then
+    paru --needed --noconfirm -S "${PKGS[@]}"
+else
+    sudo pacman --needed --noconfirm -S "${PKGS[@]}"
 fi
+
+log "Configurando temas de Rofi..."
+mkdir -p "$ROFI_THEME_DIR"
+cp rofi/* "$ROFI_THEME_DIR/"
+
+log "Configurando Hyprland..."
+mkdir -p "$HYPR_DIR"
+cp -rv hypr/* "$HYPR_DIR/"
+
+log "Instalando tema de SDDM..."
+sudo cp -rv sddm/sequoia "$SDDM_THEME_DIR/" || error_exit "No se pudo copiar el tema de SDDM."
+
+log "Configurando archivo sddm.conf..."
+if grep -q "^Current=" "$SDDM_CONF"; then
+    sudo sed -i 's/^Current=.*/Current=sequoia/' "$SDDM_CONF" || error_exit "Error al modificar $SDDM_CONF."
+else
+    sudo sh -c "echo -e '[Theme]\nCurrent=sequoia' >> $SDDM_CONF" || error_exit "No se pudo agregar configuración en $SDDM_CONF."
+fi
+
+log "Script finalizado exitosamente."
 
