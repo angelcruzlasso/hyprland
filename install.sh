@@ -54,6 +54,7 @@ PKGS=(
     hyprpaper cliphist nwg-displays nwg-look
     flat-remix-gtk blueman octopi gammastep
     network-manager-applet waypaper ttf-jetbrains-mono-nerd
+    qt6-5compat qt6 qt6-declarative
 )
 
 if [ "$GESTOR" = "paru" ]; then
