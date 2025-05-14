@@ -1,7 +1,0 @@
-{
-    "clock": {
-        "format": "{:%I:%M %p : %d/%m/%Y}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "today-format": "<b>{}</b>"
-    }
-}

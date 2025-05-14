@@ -1,6 +1,0 @@
-{
-    "hyprland/workspaces": {
-        "format": "{name}",
-        "all-outputs": true
-    }
-}
