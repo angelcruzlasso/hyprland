@@ -1,22 +1,22 @@
 {
     "group/adds-ons":{
-        "orientation": "horizontal",
+        "orientation": "vertical",
         "modules": [
             "custom/logo-adds-ons",
-            "group/backlight",
-            "group/pulseaudio",
             "custom/gammastep",
             "custom/screenshot_t",
             "power-profiles-daemon",
-            "custom/change-wallpaper"
+            "custom/change-wallpaper",
+            "group/backlight",
+            "group/pulseaudio"
         ],
         "drawer":{
-            "transition-duration": 500,
+            "transition-duration": 300,
             "click-to-reveal": false
         }
     },
         "custom/logo-adds-ons":{
-        "format": "",
+        "format": "",
         "tooltip": false
     },
     "custom/gammastep":{

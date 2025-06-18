@@ -1,266 +1,246 @@
-@define-color primary   #61afef;
-@define-color secondary #e06c75;
-@define-color third     #282c34;
-@define-color fourth    #98c379;
-@define-color hover     #3a3f4b;
-@define-color background #181825;
-@define-color accent     #f0f0f0;
+@define-color primary    #e0e0e0;
+@define-color secondary  rgba(255, 255, 255, 0.3);
+@define-color third      #fafafa;
+@define-color fourth     #ffffff;
+@define-color background #ffffff;
+@define-color hover      #f5f5f5;
+@define-color accent     #3399ff;
+
+
 * {
   font-family: "Varino"; /* `otf-font-awesome` es necesario para los íconos */
-  /*font-weight: 800;*/
   font-weight: bold;
-  font-size: 10px;
-  min-height: 0;
+  font-size: 15px;
 }
 
-/* El bar completo: Estilo del waybar en general */
+/* Estilo general del Waybar */
 #waybar {
-  background: @background;
+  background: rgba(1, 1, 2, 0.567);
   color: @accent;
-  border-radius: 7px;
-  border-bottom: 0px solid rgb(255, 255, 255);
+  border-radius: 0px;
+  border-bottom: 0px solid rgba(51, 204, 255, 0.933);
   margin-bottom: 0px;
+  border-radius: 10px;
 }
 
-/* Módulos centrales */
-.modules-center {
-  background-color: transparent;
-}
-
-/* Módulos de la derecha */
+/* Centrales y derecha */
+.modules-center,
 .modules-right {
   background-color: transparent;
 }
 
 /* Espacios de trabajo */
 #workspaces {
-  background-color: @background;
-  font-size: 20px;
-  margin: 7 0 7 -20px;
-  padding: 0 0 0 8px;
+  background-color: transparent;
+  padding: 0;
+  margin: 4 0 4 0px;
+  border-radius: 5px;
 }
 
-/* Botones de los espacios de trabajo */
-#workspaces button 
-{
+#workspaces button {
+  color : rgba(255, 255, 255, 0.3);
+  background-color: transparent;
+  padding: 0 2px;
+  margin: 4 0 4 0px;
   border-radius: 0px;
-  background-color: @background;
-  color: @secondary;
-  border-bottom: 0px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Espacios de trabajo activos */
 #workspaces button.active {
   color: @primary;
-  background-color: @background;
+  padding: 0 2px;
+  margin: 4 0 4 0px;
+
 }
 
-/* Espacios de trabajo vacíos */
 #workspaces button.empty {
-  color: @third;
-  background-color: @background;
-}
-
-#window {
-  font-size:12px;
-  color: @fourth; 
-  border-radius: 5px;
-  border: 0px solid #686869;
-  padding-right: 15px;
-  padding: 0px;
-  margin-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 0px;
+  color: rgba(255, 255, 255, 0.205);
+  padding: 0;
+  margin: 4 0 4 0px;
 }
 
 #clock {
+  font-size: 20px;
   color: @primary;
   background-color: transparent;
-  margin-right: 10px;
+  padding: 10 5 0 5px;
+  margin: 4 5 4 5px;
+  border-radius: 5px;
 }
 
-
-#custom-screenshot_t {
-  color: @secondary;
-  font-size: 20px;
-  margin: 0 3 0 7px;
-  padding: 0 5 0 0px;
+#custom-logo-taskbar {
+  color: @primary;
+  font-size: 18px;
+  background-color: transparent;
+  padding: 0 5 0 5px;
+  margin: 0 0 0 0px;
+  border-radius: 5px;
 }
 
-#custom-screenshot_t:hover {
+#custom-logo-taskbar:hover {
   color: @hover;
 }
 
 #taskbar {
   background-color: transparent;
   font-size: 8px;
-  margin: 2 0 2 0px;
-  padding: 0 15 0 8px;
+  padding: 0 0 0 0px;
+  margin: 0 0 0 0px;
 }
-
 #taskbar button {
+  border-radius: 0px;
   min-width: 20px;
-  border-bottom: 0px solid rgba(255, 255, 255, 0.3);
-  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+	border-bottom: 0px solid rgba(255, 255, 255, 0.3);
+	margin: 0 5 0 5px;
+  color: white;
+	transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-
 #taskbar button.active {
-  border-bottom: 2px solid #5ebcbf; /*#5ebcbf*/
-  background: transparent;
-  border-radius: 0px;
+  border-radius: 10px;
+  border-bottom: 0px solid white;
+  background: rgba(255, 255, 255, 0.164);
 }
-
 #taskbar button:hover {
-  border-bottom: 2px solid white;
-  background: transparent;
-  border-radius: 0px;
+  border-bottom: 0px solid white;
+  background: @bg_hover;
+	color: @content_main;
 }
 
-#memory {
-  font-size: 12px;
-  color: @primary;
-  background-color: @third;
-  padding: 0 4 0 4px;
-  margin: 7 0 7 0px;
-  border-top: 0px solid @secondary;
-  border-left: 0px solid @secondary;
-  border-bottom: 0px solid @secondary;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-#memory:hover {
-  color: @hover;
-}
-
-#custom-logo-backlight{
-  color:  @secondary;
-  background-color: transparent;
-  font-size: 18px;
-  margin: 7 0 7 0px;
-  padding: 0 7 0 7px;
-}
-
-#custom-logo-backlight:hover{
-  color: @hover;
-}
-
-#custom-logo-pulseaudio{
-  color: @secondary;
-  background-color: transparent;
-  font-size: 20px;
-  margin: 7 0 7 0px;
-  padding: 0 7 0 7px;
-}
-
-#custom-logo-pulseaudio:hover{
-  color: @hover;
-}
-
-#custom-change-wallpaper{
-  color: @secondary;
-  font-size: 20px;
-  padding: 0 5 0 5px;
-  margin: 0 10 0 3px;
-}
-
-#custom-change-wallpaper:hover{
-  color: @hover;
-}
-#custom-logo-taskbar {
-  color: @primary;
-  font-size: 20px;
-  padding: 0 4 0 4;
-}
-
-#custom-logo-taskbar:hover {
-  color: @hover;
-  font-size: 20px;
-  padding: 0 4 0 4;
-}
 
 #tray {
-  font-size: 12px;
-  color: @secondary;
-  background-color: @third;
-  border-radius: 5px;
-  padding: 0 4 0 4px;
-  margin: 7 0 7 5px;
-}
 
+  color: @secondary;
+  background-color: transparent;
+  border-top: 0px solid @secondary;
+  padding: 0 0px;
+  margin: 4px 0 4px 0px;
+}
 #tray > .passive {
   -gtk-icon-effect: dim;
 }
-
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
   background-color: #eb4d4b;
 }
 
+#custom-logo-adds-ons {
+  color: @primary;
+  font-size: 30px;
+  background-color: transparent;
+  padding: 0 5 0 5px;
+  margin: 0 0 0 0px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#custom-logo-backlight {
+  color: @secondary;
+  background-color: transparent;
+  font-size: 25px;
+  padding: 0 10 0 5px;
+  margin: 0 0 0 0px;
+}
+
+#custom-logo-backlight:hover {
+  color: @hover;
+}
+
+#custom-logo-pulseaudio {
+  color: @secondary;
+  background-color: transparent;
+  font-size: 25px;
+  padding: 0 10 0 5px;
+  margin: 0 0 0 0px;
+}
+
+#custom-logo-pulseaudio:hover {
+  color: @hover;
+}
+
 #custom-gammastep {
   color: @secondary;
-  font-size: 20px;
-  padding: 0 5 0 5px;
-  margin: 0 5 0 5px;
+  background-color: transparent;
+  font-size: 25px;
+  padding: 0 10 0 5px;
+  margin: 0 0 0 0px;
+}
+
+#custom-gammastep.enabled {
+  color: @primary;
+  padding: 0 10px 0 5px;
 }
 
 #custom-gammastep:hover {
   color: @hover;
 }
 
-#custom-gammastep.enabled {
-  color: @primary;
-  font-size: 20px;
-  padding: 0 5 0 5px;
-  margin: 0 5 0 5px;
+#custom-screenshot_t {
+  color: @secondary;
+  background-color: transparent;
+  font-size: 25px;
+  padding: 0 10 0 5px;
+  margin: 0 0 0 0px;
 }
 
-#custom-logo-adds-ons {
-  color: @primary;
-  font-size: 20px;
-  background-color: @third;
-  padding: 0 5 0 5px;
-  margin: 7 0 7 0px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+#custom-screenshot_t:hover {
+  color: @hover;
 }
 
-#power-profiles-daemon{
-  font-size: 17px;
-  padding:0 2 0 7px;
-  margin: 0 5 0 5px
+#power-profiles-daemon {
+  font-size: 25px;
+  background-color: transparent;
+  padding: 0 10 0 5px;
+  margin: 0 0 0 0px;
 }
 
-#power-profiles-daemon.performance{
+#power-profiles-daemon.performance {
   color: #cc4a4a;
+  padding: 0 10 0 5px;
+  margin: 0 0 0 0px;
 }
-#power-profiles-daemon.balanced{
+
+#power-profiles-daemon.balanced {
   color: #ffe204;
+  padding: 0 15 0 5px;
+  margin: 0 0 0 0px;
 }
-#power-profiles-daemon.power-saver{
+
+#power-profiles-daemon.power-saver {
   color: #3bffa4;
+  padding: 0 15 0 5px;
+  margin: 0 0 0 0px;
+}
+
+#custom-change-wallpaper {
+  color: @secondary;
+  background-color: transparent;
+  font-size: 25px;
+  padding: 0 10 0 5px;
+  margin: 0 0 0 0px;
+}
+
+#custom-change-wallpaper:hover {
+  color: @hover;
 }
 
 #battery {
-  font-size: 18px;
-  color: @secondary;
+  font-size: 25px;
+  color: @primary;
   background-color: transparent;
-  margin-left: 10px;
-  margin-right: 15px;
+  padding: 0 0 10 0px;
+  margin: 4px 0 4 0px;
 }
-
 #battery.charging,
 #battery.full,
 #battery.plugged {
   color: #3bffa4;
-  background-color: transparent;
+  padding: 0 0px 10 5px;
+  margin: 4 0 4 0px;
 }
 
 @keyframes blink {
   to {
-      background-color: rgba(30, 34, 42, 0.5);
-      color: #abb2bf;
+    background-color: rgba(30, 34, 42, 0.5);
+    color: #abb2bf;
   }
 }
 
@@ -273,42 +253,28 @@
   animation-direction: alternate;
 }
 
-#backlight-slider slider {
-    min-height: 0px;
-    min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
-}
-#backlight-slider trough {
-    min-height: 7px;
-    min-width: 50px;
-    border-radius: 5px;
-    background-color: black;
-}
-#backlight-slider highlight {
-    min-width: 10px;
-    border-radius: 5px;
-    background-color: @secondary;
+/* Sliders */
+#backlight-slider slider,
+#pulseaudio-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
 }
 
-#pulseaudio-slider slider {
-    min-height: 0px;
-    min-width: 0px;
-    opacity: 0;
-    background-image: none;
-    border: none;
-    box-shadow: none;
-}
+#backlight-slider trough,
 #pulseaudio-slider trough {
-    min-height: 7px;
-    min-width: 50px;
-    border-radius: 5px;
-    background-color: black;
+  min-height: 50px;
+  min-width: 7px;
+  border-radius: 5px;
+  background-color: black;
 }
+
+#backlight-slider highlight,
 #pulseaudio-slider highlight {
-    min-width: 10px;
-    border-radius: 5px;
-    background-color: @secondary;
+  min-width: 7px;
+  border-radius: 5px;
+  background-color: @secondary;
 }
