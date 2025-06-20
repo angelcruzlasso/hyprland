@@ -76,7 +76,7 @@ elif [ "$GESTOR" = "yay" ]; then
 elif [ "$GESTOR" = "pamac" ]; then
     pamac install --no-confirm "${PKGS[@]}"
 elif [ "$GESTOR" = "dnf" ]; then
-    sudo dnf install -y "${PKGS[@]}" --skip-broken
+    sudo dnf install -y "${PKGS[@]}" --skip-broken --skip-unavailable
 elif [ "$GESTOR" = "apt-get" ]; then
     sudo apt-get install -y "${PKGS[@]}"
 elif [ "$GESTOR" = "zypper" ]; then
