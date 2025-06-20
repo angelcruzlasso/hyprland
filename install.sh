@@ -31,6 +31,18 @@ detectar_gestor_de_paquetes() {
         echo "paru"
     elif command -v pacman &>/dev/null; then
         echo "pacman"
+    elif command -v yay &>/dev/null; then
+	echo "yay"
+    elif command -v pamac &>/dev/null; then
+	echo "pamac"
+    elif command -v dnf &>/dev/null; then
+	echo "dnf"
+    elif command -v apt-get &>/dev/null; then
+	echo "apt-get"
+    elif command -v zypper &>/dev/null; then
+	echo "zypper"
+    elif command -v emerge &>/dev/null; then
+	echo "emerge"
     else 
         error_exit "No se encontró un gestor de paquetes compatible (paru o pacman)."
     fi
@@ -59,6 +71,18 @@ PKGS=(
 
 if [ "$GESTOR" = "paru" ]; then
     paru --needed --noconfirm -S "${PKGS[@]}"
+elif [ "$GESTOR" = "yay" ]; then
+	    yay --needed --noconfirm -S "${PKGS[@]}"
+elif [ "$GESTOR" = "pamac" ]; then
+    pamac install --no-confirm "${PKGS[@]}"
+elif [ "$GESTOR" = "dnf" ]; then
+    sudo dnf install -y "${PKGS[@]}" --skip-broken
+elif [ "$GESTOR" = "apt-get" ]; then
+    sudo apt-get install -y "${PKGS[@]}"
+elif [ "$GESTOR" = "zypper" ]; then
+    sudo zypper install -y "${PKGS[@]}"
+elif [ "$GESTOR" = "emerge" ]; then
+    sudo emerge "${PKGS[@]}"
 else
     sudo pacman --needed --noconfirm -S "${PKGS[@]}"
 fi
